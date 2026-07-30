@@ -1,5 +1,5 @@
 # 📡 Telecom Antenna Detection & Azimuth Estimation System
-> **Khóa Luận Tốt Nghiệp** — MSSV: `22200130` — Họ và tên: **Huỳnh Nguyễn Quân**
+> **Khóa Luận Tốt Nghiệp** — MSSV: `22200130` — Họ và tên: **Huỳnh Nguyên Quân**
 
 ---
 
