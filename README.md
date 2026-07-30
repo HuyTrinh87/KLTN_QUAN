@@ -133,6 +133,6 @@ Mở các notebook trong thư mục `notebooks/training/` thông qua Jupyter Lab
 
 ## 📄 Bản Quyền & Tác Giả (Author)
 
-* **Tác giả:** Huỳnh Nguyễn Quân (MSSV: 22200130)
+* **Tác giả:** Huỳnh Nguyênn Quân (MSSV: 22200130)
 * **Trường:** Đại học Khoa học Tự nhiên - ĐHQG TP.HCM
 * **Năm hoàn thành:** 2026
