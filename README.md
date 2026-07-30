@@ -1,6 +1,6 @@
 # 📡 Telecom Antenna Detection & Azimuth Estimation System
 > **Khóa Luận Tốt Nghiệp** — MSSV: `22200130` — Họ và tên: **Huỳnh Nguyễn Quân**  
-> **Chuyên ngành:** Điện tử Viễn thông — Trắc nghiệm & Xử lý Thị giác Máy tính trong Hạ tầng Viễn thông
+> **Chuyên ngành:** Điện tử Viễn thông — Ứng dụng & Xử lý Thị giác Máy tính trong Hạ tầng Viễn thông
 
 ---
 
