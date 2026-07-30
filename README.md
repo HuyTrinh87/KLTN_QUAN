@@ -17,7 +17,7 @@ Dự án nghiên cứu và phát triển giải pháp thị giác máy tính (Co
    - Cơ chế bảo vệ nghiêng **Tilt-Sanity Guard** (lọc góc tilt bất hợp lý trong khoảng $-12^\circ \le \text{tilt} \le 88^\circ$).
 4. **Ghép nối Tối ưu Hungarian Matching:** Ghép cặp 1-1 tối ưu toàn cục giữa Bounding Box và Keypoint bằng giải thuật Hungarian (`scipy.optimize.linear_sum_assignment`) kết hợp kiểm tra tâm spatial center.
 5. **Tính toán Phương vị Thực:**
-   $$\text{true\_az} = (\text{heading} - \text{az\_rel} + \text{AZIMUTH\_OFFSET}) \pmod{360}$$
+   \text{true\_az} = (\text{heading} - \text{az\_rel} + \text{AZIMUTH\_OFFSET}) \pmod{360}
 
 ---
 
