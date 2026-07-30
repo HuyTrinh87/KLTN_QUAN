@@ -1,0 +1,7 @@
+path: /kaggle/input/datasets/nonlam123/data-mamba-yolo-base-finally/YOLO_Final_Dataset
+train: train/images
+val: val/images
+test: test/images
+
+nc: 6
+names: ['anten-4G', 'anten-5G', 'none', 'rrh', 'rru', 'viba']

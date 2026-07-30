@@ -1,0 +1,7 @@
+path: /kaggle/input/datasets/tungtungtungtung/final-dataset-yolo/YOLO_Final_Dataset
+train: train/images
+val: val/images
+test: test/images
+
+nc: 6
+names: ['anten-4G', 'anten-5G', 'none', 'rrh', 'rru', 'viba']

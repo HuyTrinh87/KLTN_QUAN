@@ -1,0 +1,44 @@
+[
+  {
+    "model": "YOLO26n",
+    "params_M": 2.51,
+    "gflops": 5.8,
+    "inf_ms": 3.34,
+    "fps": 299.0
+  },
+  {
+    "model": "YOLO26s",
+    "params_M": 9.95,
+    "gflops": 22.5,
+    "inf_ms": 7.87,
+    "fps": 127.1
+  },
+  {
+    "model": "YOLO26m",
+    "params_M": 21.78,
+    "gflops": 74.8,
+    "inf_ms": 19.42,
+    "fps": 51.5
+  },
+  {
+    "model": "YOLO26l",
+    "params_M": 26.19,
+    "gflops": 93.2,
+    "inf_ms": 23.84,
+    "fps": 41.9
+  },
+  {
+    "model": "YOLO26x",
+    "params_M": 58.82,
+    "gflops": 208.6,
+    "inf_ms": 49.15,
+    "fps": 20.3
+  },
+  {
+    "model": "Mamba-YOLO-B",
+    "params_M": 21.8,
+    "gflops": 49.6,
+    "inf_ms": 53.0,
+    "fps": 18.9
+  }
+]
