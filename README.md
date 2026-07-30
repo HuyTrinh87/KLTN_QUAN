@@ -5,7 +5,7 @@
 
 ## 📌 Giới Thiệu Dự Án (Project Overview)
 
-Dự án nghiên cứu và phát triển giải pháp thị giác máy tính (Computer Vision) phục vụ công tác quản lý hạ tầng viễn thông, hỗ trợ ước lượng tự động **Góc Phương Vị (Azimuth)** và góc nghiêng (**Tilt**) của các thiết bị ăng-ten (`anten-4G`, `anten-5G`, `rrh`, `rru`, `viba`) từ ảnh chụp hiện trường.
+Dự án nghiên cứu và phát triển giải pháp thị giác máy tính (Computer Vision) phục vụ công tác quản lý hạ tầng viễn thông, hỗ trợ ước lượng tự động **Góc Phương Vị (Azimuth)**  của các thiết bị ăng-ten (`anten-4G`, `anten-5G` từ ảnh chụp hiện trường.
 
 ### ✨ Các Tính Năng Nổi Bật
 1. **Object Detection (Nhận diện thiết bị):** Sử dụng các mô hình học sâu hiện đại như **YOLOv26** (Nano, Small, Mid, Large, XLarge) và **Mamba-YOLO** để phát hiện và phân loại chính xác các loại ăng-ten và khối RRH/RRU.
