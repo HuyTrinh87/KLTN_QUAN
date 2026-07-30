@@ -1,0 +1,22 @@
+image: python:3.10-slim
+
+stages:
+  - lint
+  - build
+  - test
+
+before_script:
+  - apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
+  - python -m pip install --upgrade pip
+  - pip install -r requirements.txt
+
+lint-job:
+  stage: lint
+  script:
+    - pip install flake8
+    - flake8 src/ entrypoint/ --count --select=E9,F63,F7,F82 --show-source --statistics
+
+syntax-check-job:
+  stage: test
+  script:
+    - python -m py_compile src/pipelines/inference_pipeline.py src/pipelines/feature_eng_pipeline.py entrypoint/inference.py

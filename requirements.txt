@@ -1,0 +1,21 @@
+# Telecom Antenna Detection & Azimuth Estimation System Dependencies
+
+# Core Deep Learning Framework
+torch>=2.0.0
+torchvision>=0.15.0
+
+# YOLO Vision & Model Framework
+ultralytics>=8.0.0
+
+# Computer Vision & Math Processing
+opencv-python>=4.8.0
+scipy>=1.10.0
+numpy>=1.24.0
+pillow>=9.5.0
+
+# Data Analysis & Plotting
+matplotlib>=3.7.0
+pandas>=2.0.0
+
+# Notebook Execution (Optional)
+jupyter>=1.0.0

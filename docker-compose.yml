@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  telecom-azimuth-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: telecom_azimuth_app
+    restart: always
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./config:/app/config
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CUDA_VISIBLE_DEVICES=0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: python3 entrypoint/inference.py
