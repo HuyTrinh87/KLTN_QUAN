@@ -476,17 +476,17 @@ Vì vậy, cấu hình Docker hiện nên được xem là khung triển khai, c
 
 ### 14.1. Cán bộ hướng dẫn
 
-- **TS. Đặng Lê Khoa**
-- **HVCH. Vũ Thảo Vi**
-- **HVCH. Trịnh Ngọc Huy**
+- TS. Đặng Lê Khoa
+- HVCH. Vũ Thảo Vi
+- HVCH. Trịnh Ngọc Huy
 
 ### 14.2. Sinh viên thực hiện
 
-- **Huỳnh Nguyên Quân**
+- Huỳnh Nguyên Quân
 
 ### 14.3. Đơn vị công tác
 
-- **Khoa Điện tử – Viễn thông**, Trường Đại học Khoa học Tự nhiên, ĐHQG TP.HCM
+- Khoa Điện tử – Viễn thông, Trường Đại học Khoa học Tự nhiên, ĐHQG TP.HCM
 
 ---
 
