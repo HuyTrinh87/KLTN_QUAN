@@ -29,11 +29,11 @@ của từng ăng-ten**, thay cho việc trèo cột đo bằng la bàn.
 Ảnh được gán nhãn trên Roboflow, xuất ra COCO (một tệp `_annotations.coco.json` cho cả tập).
 YOLO cần mỗi ảnh một tệp `.txt`, nên phải chuyển đổi:
 
-| | COCO | YOLO |
-|---|---|---|
+|           | COCO                               | YOLO                             |
+| --------- | ---------------------------------- | -------------------------------- |
 | Khung bao | `[x_trái, y_trên, rộng, cao]` | `[x_tâm, y_tâm, rộng, cao]` |
-| Đơn vị | điểm ảnh tuyệt đối | chuẩn hoá 0–1 theo cỡ ảnh |
-| Tổ chức | một JSON cho cả tập | một `.txt` mỗi ảnh |
+| Đơn vị | điểm ảnh tuyệt đối           | chuẩn hoá 0–1 theo cỡ ảnh   |
+| Tổ chức | một JSON cho cả tập             | một`.txt` mỗi ảnh           |
 
 Bản export của Roboflow luôn chèn thêm một category cha (`Nha-tram`, id 0) không phải lớp thật —
 ghép lớp **theo tên** với danh sách `CLASSES` để nó tự bị loại, đồng thời bảo đảm chỉ số lớp khớp
@@ -80,8 +80,8 @@ Bản đầu chọn mô hình bằng chỉ số trên **tập test** → sai ngu
 
 **Kết quả trên tập test (mAP50 / mAP50-95):**
 
-| n | s | m | l | x |
-|---|---|---|---|---|
+| n             | s             | m                       | l             | x             |
+| ------------- | ------------- | ----------------------- | ------------- | ------------- |
 | 0,772 / 0,508 | 0,804 / 0,546 | **0,847 / 0,585** | 0,820 / 0,569 | 0,835 / 0,586 |
 
 **Thời gian suy luận (ms/ảnh, Tesla T4, đo cả 6 mô hình trong MỘT lần chạy):**
@@ -101,7 +101,7 @@ tính góc) thì YOLO26m dẫn đầu, cộng chi phí thấp hơn hẳn.
   không đổi, chỉ câu mô tả cơ chế là sai.
 - **Suy diễn phải để `imgsz=640`**, đúng kích thước lúc huấn luyện. Đo trên tập test: 640 cho
   0,844/0,585 · 17,1 ms; 1280 cho 0,824/0,534 · 160,4 ms. Ở 1280, lớp `anten-5G` thiệt nặng nhất —
-  trên ảnh `90.jpg` trạm VTU0510, độ tin cậy tụt 0,935 → 0,524, rớt dưới ngưỡng và **biến mất khỏi
+  trên ảnh `90.jpg`, độ tin cậy tụt 0,935 → 0,524, rớt dưới ngưỡng và **biến mất khỏi
   pipeline azimuth**.
 
 ---
@@ -141,10 +141,10 @@ Chuyển `segmentation` → 4 keypoint: **đọc thẳng thứ tự đã click**
 (nhãn gốc vốn đã sạch: tứ giác tự cắt 0/568, điểm trùng 0/568, cùng chiều duyệt 567/568) và cả hai
 đời đều gây hại:
 
-| Đời | Cách làm | Hậu quả |
-|---|---|---|
-| 1 | tổng/hiệu toạ độ (`argmin(x+y)` = TL…) | ăng-ten chụp nghiêng → 2 chỉ số rơi vào cùng 1 điểm → tứ giác **sập** thành 2 điểm, hỏng **22,4%** nhãn |
-| 2 | sắp theo góc quanh tâm + bắt đầu từ cạnh trên cùng | hết sập, nhưng **xoay lệch 1 bậc 8,8%** nhãn (rrh 64%, 5G 22%, 4G chỉ 1%) |
+| Đời | Cách làm                                                   | Hậu quả                                                                                                                              |
+| ----- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | tổng/hiệu toạ độ (`argmin(x+y)` = TL…)               | ăng-ten chụp nghiêng → 2 chỉ số rơi vào cùng 1 điểm → tứ giác**sập** thành 2 điểm, hỏng **22,4%** nhãn |
+| 2     | sắp theo góc quanh tâm + bắt đầu từ cạnh trên cùng | hết sập, nhưng**xoay lệch 1 bậc 8,8%** nhãn (rrh 64%, 5G 22%, 4G chỉ 1%)                                                  |
 
 Bài học: mọi heuristic 2D đều gãy dưới phép xoay + phối cảnh. Cũng đã thử luật "cạnh P0→P1 của 4G
 phải là cạnh ngắn" → **phá nhãn đang đúng**, vì phối cảnh mạnh làm cạnh 874 mm chiếu ngắn hơn cạnh
@@ -184,14 +184,14 @@ Loss gains: box 7.5 · cls 0.5 · dfl 1.5 · **pose 12.0** · kobj 1.0.
 
 Pose AP@0.5:0.95 (OKS) trên **tập valid**:
 
-| Lớp | n(val) | 26m | 26l |
-|---|---|---|---|
-| anten-4G | 48 | **0,881** | 0,873 |
-| anten-5G | 7 | 0,689 | **0,750** |
-| rrh | 2 | **0,945** | 0,845 |
-| rru | 12 | 0,759 | **0,863** |
-| TB 4 lớp | | 0,819 | **0,833** |
-| **TB có trọng số theo số đối tượng** | | **0,857** | **0,857** |
+| Lớp                                               | n(val) | 26m             | 26l             |
+| -------------------------------------------------- | ------ | --------------- | --------------- |
+| anten-4G                                           | 48     | **0,881** | 0,873           |
+| anten-5G                                           | 7      | 0,689           | **0,750** |
+| rrh                                                | 2      | **0,945** | 0,845           |
+| rru                                                | 12     | 0,759           | **0,863** |
+| TB 4 lớp                                          |        | 0,819           | **0,833** |
+| **TB có trọng số theo số đối tượng** |        | **0,857** | **0,857** |
 
 Lập luận ba bước: (1) trung bình không trọng số nghiêng về 26l, nhưng nó cho lớp 5G chỉ 7 đối tượng
 sức nặng ngang lớp 4G có 48; (2) **trung bình có trọng số hoà đến 3 chữ số**; (3) chênh lệch nằm trọn
@@ -213,7 +213,7 @@ Trên tập test (chỉ để **báo cáo** sau khi đã chốt): 26m 0,720 / 26
 
 **Thư viện:** [azimuth_optimized.py](azimuth_optimized.py)
 **Chạy cho một thư mục ảnh bất kỳ:** [Azimuth_Folder_BatKy.ipynb](Azimuth_Folder_BatKy.ipynb)
-**Bản trình bày từng bước:** [VTU0510_Azimuth_TungBuoc.ipynb](VTU0510_Azimuth_TungBuoc.ipynb)
+**Bản trình bày từng bước:** [Azimuth_TungBuoc.ipynb](Azimuth_TungBuoc.ipynb)
 
 ### E.1 Chuỗi tính
 
@@ -246,7 +246,7 @@ nào**. Đây là dữ liệu bắt buộc lấy từ ngoài, theo thứ tự ư
    tính được mà không cần heading (heading triệt tiêu khi lấy hiệu) — chỉ cần một mốc tuyệt đối để
    xoay cả cụm.
 
-Về hằng số `offset`: trạm duy nhất có số đo thật (LAN0890) cần khoảng **196–201°** mới khớp, trong
+Về hằng số `offset`: trạm duy nhất có số đo thật cần khoảng **196–201°** mới khớp, trong
 khi quy ước đang dùng theo chỉ đạo của người hướng dẫn đặt **`AZIMUTH_OFFSET = 0`**. Mâu thuẫn này
 chưa giải quyết dứt điểm, cần thêm trạm có azimuth đo thật. Giả thuyết "180° nằm ở thứ tự keypoint"
 **đã bị bác bằng thực nghiệm**: gán nhãn lại theo thứ tự click rồi train lại vẫn cần đúng offset đó.
@@ -254,10 +254,10 @@ chưa giải quyết dứt điểm, cần thêm trạm có azimuth đo thật. G
 ### E.3 Cách đánh giá đúng — gộp theo sector, không chấm từng cái lẻ
 
 Một ảnh nhìn thấy nhiều sector. Tính azimuth cho **từng thiết bị**, rồi gộp các lần đo cùng sector
-bằng trung bình vòng tròn robust. Trên LAN0890: từng cái lẻ chỉ ~6/12 đạt ±15° (nhiễu keypoint trên
+bằng trung bình vòng tròn robust. Trên ảnh: từng cái lẻ chỉ ~6/12 đạt ±15° (nhiễu keypoint trên
 ảnh 480×720), **nhưng gộp 3 sector → 3/3 đạt**: 8,5 / 94,5 / 196,3 so với thật 10 / 100 / 200.
 
-### E.4 Kiểm chứng khi không có azimuth thật — trạm VTU0510
+### E.4 Kiểm chứng khi không có azimuth thật
 
 3 ảnh chụp ở ba hướng, thu được 8 ăng-ten, sai số tái chiếu 0,54–2,85 điểm ảnh. Mỗi giá đỡ có một
 ăng-ten 4G và một ăng-ten 5G **bắt buộc hướng trùng nhau**, mà hai ăng-ten được xử lý hoàn toàn độc
@@ -278,15 +278,15 @@ chéo không cần dữ liệu ngoài**. Bốn cặp lệch **2,8° · 4,7° · 
 
 ### E.6 Các nhánh đã thử rồi LOẠI BỎ vì đo thấy không có tác dụng hoặc có hại
 
-| Nhánh | Kết quả đo |
-|---|---|
-| Ước lượng tiêu cự bằng Depth-Anything-3 thay EXIF | MAE 17,3° so với 10,8° của f35 cố định — **tệ hơn hẳn**; fx biến thiên 90–214 mm trong cùng một buổi chụp là phi lý vật lý |
-| Trọng số theo độ bất định Monte-Carlo (nhiễu keypoint 2 px) | sai số sector 6,96 so với 4,46 — **hại** |
-| Trung bình đa tỉ lệ (TTA qua imgsz 640/768/896/1024) | 6,19 so với 4,46 — chỉ xê dịch bias, không giảm nhiễu (mô hình train ở 640) |
-| Khử nhập nhằng nghiệm gương bằng EM tự do | MAE 23 — tạo cụm chặt giả |
-| Trọng số theo kích thước khung bao | tốt hơn ở LAN0890 nhưng **làm mất hẳn một sector ở VTU0510** → đã revert về trọng số RMS |
-| Dùng `tilt` để chọn nghiệm gương | bắt được ca 5G vô hại, **bỏ lọt ca 4G chết người** → chỉ dùng làm cờ cảnh báo |
-| Làm nét / cornerSubPix / upscale Lanczos | không thêm thông tin thật → không cải thiện |
+| Nhánh                                                              | Kết quả đo                                                                                                                                         |
+| ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ước lượng tiêu cự bằng Depth-Anything-3 thay EXIF            | MAE 17,3° so với 10,8° của f35 cố định —**tệ hơn hẳn**; fx biến thiên 90–214 mm trong cùng một buổi chụp là phi lý vật lý |
+| Trọng số theo độ bất định Monte-Carlo (nhiễu keypoint 2 px) | sai số sector 6,96 so với 4,46 —**hại**                                                                                                     |
+| Trung bình đa tỉ lệ (TTA qua imgsz 640/768/896/1024)            | 6,19 so với 4,46 — chỉ xê dịch bias, không giảm nhiễu (mô hình train ở 640)                                                                |
+| Khử nhập nhằng nghiệm gương bằng EM tự do                   | MAE 23 — tạo cụm chặt giả                                                                                                                        |
+| Trọng số theo kích thước khung bao                             | tốt hơn ở trạm A nhưng**làm mất hẳn một sector ở trạm B** → đã revert về trọng số RMS                                          |
+| Dùng`tilt` để chọn nghiệm gương                            | bắt được ca 5G vô hại,**bỏ lọt ca 4G chết người** → chỉ dùng làm cờ cảnh báo                                                  |
+| Làm nét / cornerSubPix / upscale Lanczos                          | không thêm thông tin thật → không cải thiện                                                                                                   |
 
 > **Bài học chung:** hai trạm có thể cho kết luận ngược nhau về cùng một tuỳ chọn ⇒ không chốt một
 > cơ chế từ dữ liệu một trạm.
@@ -294,7 +294,7 @@ chéo không cần dữ liệu ngoài**. Bốn cặp lệch **2,8° · 4,7° · 
 ### E.7 Vì sao KHÔNG báo cáo góc cụp (tilt)
 
 `tilt` mà thuật toán trả về là **góc giữa mặt ăng-ten và trục quang camera**, tức ≈ góc ngước của
-camera + góc cụp cơ khí — không phải downtilt. Đo tại VTU0510: 7/8 ăng-ten cho 47,0–58,9° (trung vị
+camera + góc cụp cơ khí — không phải downtilt. Đo tại trạm thử nghiệm: 7/8 ăng-ten cho 47,0–58,9° (trung vị
 51,6°), khớp góc ngước khi đứng chân cột chụp lên, trong khi hồ sơ trạm ghi downtilt thật chỉ **0–12°**.
 EXIF không có trường pitch nên không tách được hai thành phần. → **Đề tài chỉ báo cáo azimuth.**
 
@@ -314,6 +314,7 @@ Môi trường: Python 3.10 · `ultralytics` (nhận diện 8.4.75–8.4.102, po
 `opencv-python`, `numpy`, `scipy`, `Pillow`, `albumentations`.
 
 Ba điều dễ sai khi chạy lại:
+
 - **`imgsz` phải là 640** ở cả huấn luyện lẫn suy diễn.
 - **Ghim đúng phiên bản `ultralytics`** đã dùng lúc huấn luyện; đổi phiên bản làm chỉ số xê dịch ở
   chữ số thập phân thứ ba.

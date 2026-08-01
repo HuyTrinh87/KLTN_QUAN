@@ -2,7 +2,7 @@
 r"""
 azimuth_optimized.py  —  PIPELINE AZIMUTH ANTEN (BAN TOI UU 2026-06-26)
 =======================================================================
-Toi uu sau khi DO BANG SO tren bo LAN0890 (azimuth that = {10, 100, 200} do).
+Toi uu sau khi DO BANG SO tren bo anh mau (azimuth that = {10, 100, 200} do).
 
 Ket luan da kiem chung (xem memory azimuth-fusion-optimization):
   * Nut that THUC SU = nhieu keypoint tren anh 480x720, KHONG phai mirror/tieu cu.
@@ -19,8 +19,8 @@ Cong thuc azimuth:  true_az = (heading - az_rel + AZIMUTH_OFFSET) % 360
 
 Ve hang so hieu chuan (can doc ky truoc khi doi):
   * MAC DINH = 0 theo quy uoc "watermark = huong ang-ten nhin ra nguoi chup".
-    Day la quy uoc dang dung trong luan van (Muc 4.12, bo anh VTU0510).
-  * Rieng bo LAN0890 (tram DUY NHAT co azimuth do that, GT = 10/100/200) can offset
+    Day la quy uoc dang dung trong luan van (Muc 4.12, bo anh mau).
+  * Rieng bo anh mau (tram DUY NHAT co azimuth do that, GT = 10/100/200) can offset
     ~196-201 moi khop GT. Mau thuan nay CHUA giai quyet dut diem: hoac quy uoc watermark
     nguoc lai, hoac lech la ban thiet bi. Khi co it nhat 1 azimuth that thi dung
     calibrate_offset() de do lai, dung doan.
@@ -360,13 +360,13 @@ def run_folder(folder, pose_weights, det_weights, headings, known_azimuths=None,
 
 
 if __name__ == '__main__':
-    # Bo anh khao sat tram VTU0510: 3 anh chup o 3 huong, ten tep chinh la goc la ban.
+    # Bo anh khao sat tram mau: 3 anh chup o 3 huong, ten tep chinh la goc la ban.
     # EXIF con nguyen -> tieu cu doc RIENG cho tung anh (90.jpg chup zoom 115mm, hai anh
     # con lai 69mm), nen KHONG dat f35_mm chung cho ca thu muc.
-    FOLDER = r'E:\AZIMUTH_TEST_LAN1\22200130_KLTN_HUYNHNGUYENQUAN\VTU0510'
+    FOLDER = r'E:\AZIMUTH_TEST_LAN1\TRAM_MAU'
     # DUNG DUNG 2 MO HINH DA CHOT TRONG LUAN VAN (Chuong 4) - doi la khong con tai lap duoc so.
-    POSE = r'E:\AZIMUTH_TEST_LAN1\22200130_KLTN_HUYNHNGUYENQUAN\MO_HINH_POSE\FILE_KET_QUA\training_results_yolo26m\pose_model\weights\best.pt'
-    DET = r'E:\AZIMUTH_TEST_LAN1\22200130_KLTN_HUYNHNGUYENQUAN\best.pt'
+    POSE = r'E:\AZIMUTH_TEST_LAN1\KLTN_HUYNHNGUYENQUAN\MO_HINH_POSE\FILE_KET_QUA\training_results_yolo26m\pose_model\weights\best.pt'
+    DET = r'E:\AZIMUTH_TEST_LAN1\KLTN_HUYNHNGUYENQUAN\best.pt'
     HEADINGS = {'90.jpg': 90.0, '180.jpg': 180.0, '270.jpg': 270.0}
 
     # Tram nay CHUA co azimuth do that -> khong cham duoc sai so tuyet doi.

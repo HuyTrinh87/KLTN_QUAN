@@ -155,7 +155,7 @@ KLTN_QUAN/
 │       └── pose_results/                  # Kết quả đánh giá mô hình pose
 │
 ├── docs/
-│   └── KLTN_22200130_HuynhNguyenQuan.docx
+│   └── KLTN_HuynhNguyenQuan.docx
 │
 ├── entrypoint/
 │   └── inference.py                       # Bản chạy độc lập, có cấu hình ở cuối tệp
@@ -463,7 +463,7 @@ Vì vậy, cấu hình Docker hiện nên được xem là khung triển khai, c
 ## 13. Tài liệu liên quan
 
 - [Quy trình nghiên cứu và các quyết định kỹ thuật](README_QUY_TRINH.md)
-- [Khóa luận tốt nghiệp](docs/KLTN_22200130_HuynhNguyenQuan.docx)
+- [Khóa luận tốt nghiệp](docs/KLTN_HuynhNguyenQuan.docx)
 - [Pipeline suy luận chính](src/pipelines/inference_pipeline.py)
 - [Mã nguồn tính azimuth có chú thích](Source_code/TINH_KET_QUA_GOC_PHUONG_VI/azimuth_optimized.py)
 - [Notebook suy luận và trực quan hóa](Source_code/TINH_KET_QUA_GOC_PHUONG_VI/azimuth_inference.ipynb)
