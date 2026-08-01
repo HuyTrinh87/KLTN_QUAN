@@ -2,9 +2,7 @@
 
 Hệ thống thị giác máy tính kết hợp **YOLO26 Detection**, **YOLO26-Pose** và hình học camera để nhận diện thiết bị viễn thông, xác định bốn góc mặt trước anten và ước lượng góc phương vị từ ảnh khảo sát tại trạm BTS.
 
-**Tác giả:** Huỳnh Nguyên Quân — MSSV 22200130  
-**Đơn vị:** Khoa Điện tử – Viễn thông, Trường Đại học Khoa học Tự nhiên, ĐHQG TP.HCM  
-**Năm thực hiện:** 2026
+**Cán bộ hướng dẫn:** TS. Đặng Lê Khoa, HVCH. Trịnh Ngọc Huy, HVCH. Vũ Thảo Vi**Sinh viên thực hiện:** Huỳnh Nguyên Quân**Đơn vị:** Khoa Điện tử – Viễn thông, Trường Đại học Khoa học Tự nhiên, ĐHQG TP.HCM**Năm thực hiện:** 2026
 
 > Tài liệu này giúp người mới nắm được bài toán, luồng xử lý, dữ liệu đầu vào, kết quả đầu ra và cách chạy lại dự án. Chi tiết toàn bộ quá trình thử nghiệm, các phương án đã loại bỏ và lập luận chọn mô hình được trình bày trong [README_QUY_TRINH.md](README_QUY_TRINH.md).
 
@@ -16,13 +14,13 @@ Hệ thống thị giác máy tính kết hợp **YOLO26 Detection**, **YOLO26-P
 
 Dự án nhận các đầu vào sau:
 
-| Đầu vào | Vai trò |
-|---|---|
-| Ảnh khảo sát trạm BTS | Chứa anten và các thiết bị viễn thông cần nhận diện |
-| Trọng số YOLO26 Detection | Phân loại thiết bị và xác định khung bao |
-| Trọng số YOLO26-Pose | Xác định bốn keypoint trên mặt trước anten |
-| `heading` của ảnh | Hướng camera khi chụp, tính theo độ từ hướng Bắc |
-| Thông tin tiêu cự | Ưu tiên đọc từ EXIF; nếu thiếu sẽ dùng FOV hoặc giá trị mặc định |
+| Đầu vào                  | Vai trò                                                                        |
+| --------------------------- | ------------------------------------------------------------------------------- |
+| Ảnh khảo sát trạm BTS   | Chứa anten và các thiết bị viễn thông cần nhận diện                   |
+| Trọng số YOLO26 Detection | Phân loại thiết bị và xác định khung bao                                |
+| Trọng số YOLO26-Pose      | Xác định bốn keypoint trên mặt trước anten                              |
+| `heading` của ảnh       | Hướng camera khi chụp, tính theo độ từ hướng Bắc                      |
+| Thông tin tiêu cự        | Ưu tiên đọc từ EXIF; nếu thiếu sẽ dùng FOV hoặc giá trị mặc định |
 
 Đầu ra của mỗi thiết bị gồm:
 
@@ -330,20 +328,20 @@ Notebook này thực hiện đầy đủ quá trình suy luận, lưu bảng CSV
 
 ## 8. Ý nghĩa các trường đầu ra
 
-| Trường | Ý nghĩa |
-|---|---|
-| `image` | Tên ảnh đầu vào |
-| `name` | Lớp thiết bị do mô hình Detection dự đoán |
-| `box` | Bounding box dạng `[x1, y1, x2, y2]` |
-| `has_pose` | Có ghép được bộ keypoint hợp lệ hay không |
-| `heading` | Hướng camera khi chụp |
-| `az_rel` | Góc anten tương đối so với trục quang camera |
-| `true_az` | Góc phương vị sau khi kết hợp `heading` và offset |
-| `rms_before` | RMS của nghiệm IPPE trước tinh chỉnh LM |
-| `rms` | RMS sau tinh chỉnh LM |
-| `ambiguous` | Hai nghiệm khả dĩ có chất lượng gần nhau |
-| `flipped` | Bộ kiểm tra tilt đã chuyển sang nghiệm còn lại |
-| `mc_std` | Độ nhạy khi gây nhiễu keypoint; chỉ dùng làm thông tin cảnh báo |
+| Trường       | Ý nghĩa                                                                  |
+| -------------- | -------------------------------------------------------------------------- |
+| `image`      | Tên ảnh đầu vào                                                       |
+| `name`       | Lớp thiết bị do mô hình Detection dự đoán                          |
+| `box`        | Bounding box dạng`[x1, y1, x2, y2]`                                     |
+| `has_pose`   | Có ghép được bộ keypoint hợp lệ hay không                         |
+| `heading`    | Hướng camera khi chụp                                                   |
+| `az_rel`     | Góc anten tương đối so với trục quang camera                        |
+| `true_az`    | Góc phương vị sau khi kết hợp`heading` và offset                  |
+| `rms_before` | RMS của nghiệm IPPE trước tinh chỉnh LM                               |
+| `rms`        | RMS sau tinh chỉnh LM                                                     |
+| `ambiguous`  | Hai nghiệm khả dĩ có chất lượng gần nhau                           |
+| `flipped`    | Bộ kiểm tra tilt đã chuyển sang nghiệm còn lại                     |
+| `mc_std`     | Độ nhạy khi gây nhiễu keypoint; chỉ dùng làm thông tin cảnh báo |
 
 Nếu `has_pose=False`, thiết bị vẫn được Detection nhận diện nhưng không có bộ bốn keypoint phù hợp để giải PnP, vì vậy không thể tính azimuth.
 
@@ -476,11 +474,22 @@ Vì vậy, cấu hình Docker hiện nên được xem là khung triển khai, c
 
 ---
 
-## 14. Tác giả
+## 14. Danh sách tác giả
 
-**Huỳnh Nguyên Quân**  
-MSSV: **22200130**  
-Khoa Điện tử – Viễn thông  
-Trường Đại học Khoa học Tự nhiên, ĐHQG TP.HCM
+### 14.1. Cán bộ hướng dẫn
 
-Dự án được xây dựng phục vụ khóa luận tốt nghiệp cử nhân năm 2026.
+- **TS. Đặng Lê Khoa**
+- **HVCH. Vũ Thảo Vi**
+- **HVCH. Trịnh Ngọc Huy**
+
+### 14.2. Sinh viên thực hiện
+
+- **Huỳnh Nguyên Quân**
+
+### 14.3. Đơn vị công tác
+
+- **Khoa Điện tử – Viễn thông**, Trường Đại học Khoa học Tự nhiên, ĐHQG TP.HCM
+
+---
+
+*Dự án được xây dựng phục vụ khóa luận tốt nghiệp cử nhân năm 2026.*
