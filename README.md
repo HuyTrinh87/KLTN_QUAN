@@ -2,8 +2,6 @@
 
 Hệ thống thị giác máy tính kết hợp **YOLO26 Detection**, **YOLO26-Pose** và hình học camera để nhận diện thiết bị viễn thông, xác định bốn góc mặt trước anten và ước lượng góc phương vị từ ảnh khảo sát tại trạm BTS.
 
-**Cán bộ hướng dẫn:** TS. Đặng Lê Khoa, HVCH. Trịnh Ngọc Huy, HVCH. Vũ Thảo Vi**Sinh viên thực hiện:** Huỳnh Nguyên Quân**Đơn vị:** Khoa Điện tử – Viễn thông, Trường Đại học Khoa học Tự nhiên, ĐHQG TP.HCM**Năm thực hiện:** 2026
-
 > Tài liệu này giúp người mới nắm được bài toán, luồng xử lý, dữ liệu đầu vào, kết quả đầu ra và cách chạy lại dự án. Chi tiết toàn bộ quá trình thử nghiệm, các phương án đã loại bỏ và lập luận chọn mô hình được trình bày trong [README_QUY_TRINH.md](README_QUY_TRINH.md).
 
 ---
